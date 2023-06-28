@@ -4,6 +4,9 @@ const nextConfig = {
     remotePatterns: [{
       protocol: 'https',
       hostname: 'apod.nasa.gov'
+    }, {
+      protocol: 'http',
+      hostname: 'www.youtube.com'
     }]
   }
 }
