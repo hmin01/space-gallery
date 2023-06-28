@@ -1,5 +1,8 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+// React Query
+import ReactQueryProvider from './components/ReactQueryProvider'
+import ChakraConfigProvder from './components/ChakraConfigProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,8 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  )
+    <ReactQueryProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <ChakraConfigProvder>{children}</ChakraConfigProvder>
+        </body>
+      </html>
+    </ReactQueryProvider>
+  );
 }
