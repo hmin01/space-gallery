@@ -1,9 +1,9 @@
 // Type
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from "react";
 
 const PictureCardTitle: React.FC<any> = ({ children }: PropsWithChildren) => {
   return (
-    <h2 className="text-md">{children}</h2>
+    <h2 className="font-bold text-xl">{children}</h2>
   );
 }
 

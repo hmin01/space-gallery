@@ -1,26 +1,30 @@
 "use client"
 
-import Image from "next/image";
 // Chakra Component
-import { Card, CardBody, Stack } from "@chakra-ui/react";
+import { Box, Card, CardBody, Stack } from "@chakra-ui/react";
 // Component
+import { Picture } from "../atoms/Picture";
 import PictureCardText from "../atoms/PictureCardText";
 import PictureCardTitle from "../atoms/PictureCardTitle";
 // Type
-import type { Picture } from "../../../../servers/picture/type";
+import type { PictureInfo } from "../../../../servers/picture/type";
 
-const PictureCard: React.FC<any> = ({ info }: { info: Picture }) => {
+export default function PictureCard({ info }: { info?: PictureInfo }): JSX.Element {
   return (
     <Card>
-      <CardBody>
-        <Image alt="picture" height={400} src={info.url} width={400} />
-        <Stack mt="6" spacing="3">
-          <PictureCardTitle>{info.title}</PictureCardTitle>
-          <PictureCardText>{info.explanation}</PictureCardText>
+      <CardBody p="0">
+        <div className="rounded-t-md overflow-hidden">
+          <Picture ratio={16 / 9} src={info?.url} />
+        </div>
+        <Stack my="4" spacing="2">
+          <Box px="6">
+            <PictureCardTitle>{info?.title}</PictureCardTitle>
+          </Box>
+          <Box maxH={40} px="6" overflowY="scroll">
+            <PictureCardText>{info?.explanation}</PictureCardText>
+          </Box>
         </Stack>
       </CardBody>
     </Card>
   );
 }
-
-export default PictureCard;
