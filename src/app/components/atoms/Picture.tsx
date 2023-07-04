@@ -1,23 +1,6 @@
-"use client"
-
 // Component
 import Image from "next/image";
-import { AspectRatio } from '@chakra-ui/react';
-// React hook
-import { useCallback } from "react";
-// Type
-import type { PictureInfo } from "../../../../servers/picture/type";
-
-export const ClickablePicture: React.FC<any> = ({ info, onOpen }: { info: PictureInfo, onOpen: (info: PictureInfo) => void }) => {
-  /** [Event handler] 클릭 이벤트 */
-  const onClick = useCallback((): void => onOpen(info), [info]);
-
-  return (
-    <div className="cursor-zoom-in overflow-hidden rounded-xl" onClick={onClick}>
-      <Picture src={info.url} />
-    </div>
-  );
-}
+import AspectRatio from "./AspectRatio";
 
 export const Picture: React.FC<any> = ({ ratio, src }: { ratio?: number, src: string }) => {
   return (
