@@ -7,22 +7,22 @@ import type { PictureInfo } from "./type";
  */
 export async function getPictures(): Promise<PictureInfo[]> {
   // 데이터 조회
-  const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/picture/info/list`);
+  const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/pictures`, { cache: "no-cache" });
   // 예외 처리
   if (!res.ok) throw new Error('Failed to fetch data');
   // 결과 반환
   return res.json();
 }
-/**
- * [API Caller] 이미지 정보 조회
- * @param date 날짜 형식 문자열 (YYYY-MM-DD)
- * @returns 조회 결과
- */
-export async function getPictureInfo(date: string): Promise<PictureInfo> {
-  // 데이터 조회
-  const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/picture/info/${date}`);
-  // 예외 처리
-  if (!res.ok) throw new Error('Failed to fetch data');
-  // 결과 반환
-  return res.json();
-}
+// /**
+//  * [API Caller] 이미지 정보 조회
+//  * @param date 날짜 형식 문자열 (YYYY-MM-DD)
+//  * @returns 조회 결과
+//  */
+// export async function getPictureInfo(date: string): Promise<PictureInfo> {
+//   // 데이터 조회
+//   const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/picture/${date}`);
+//   // 예외 처리
+//   if (!res.ok) throw new Error('Failed to fetch data');
+//   // 결과 반환
+//   return res.json();
+// }
