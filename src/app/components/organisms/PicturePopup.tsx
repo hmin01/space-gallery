@@ -22,7 +22,7 @@ export default function PicturePopup(): JSX.Element {
       <ModalOverlay bg="blackAlpha.600" backdropFilter="blur(8px) hue-rotate(90deg)" />
       <ModalContent>
         <div className="rounded-t-md overflow-hidden">
-          <Picture ratio={16 / 9} src={info?.url} />
+          <Picture blurDataURL={info?.dataUrl} ratio={16 / 9} src={info?.url} />
         </div>
         <Stack my="4" spacing="2">
           <Box px="6">

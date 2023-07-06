@@ -1,4 +1,5 @@
 export interface PictureImage {
+  dataUrl: string;
   date: string;
   id: string;
   url: string;

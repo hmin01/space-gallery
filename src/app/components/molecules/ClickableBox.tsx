@@ -13,6 +13,6 @@ export function ClickableBox({ children, info }: { children: React.ReactNode, in
   const onClick = useCallback((): void => setInfo(info), [info, setInfo]);
 
   return (
-    <div className="cursor-pointer" onClick={onClick}>{children}</div>
+    <div className="brightness-90 cursor-pointer duration-300 hover:brightness-125" onClick={onClick}>{children}</div>
   );
 }

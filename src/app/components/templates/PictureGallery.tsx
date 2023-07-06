@@ -6,7 +6,7 @@ import { PictureInfo } from "../../../../servers/picture/type";
 
 export default function PictureGallery({ items }: { items?: PictureInfo[] }): JSX.Element {
   return (
-    <div className="bg-black p-4">
+    <div className="bg-black min-h-screen p-4">
       <PictureList items={items ? items : []} />
       <PicturePopup />
     </div>
