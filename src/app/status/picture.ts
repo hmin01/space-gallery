@@ -1,6 +1,6 @@
 import { create } from "zustand";
 // Type
-import type { PictureInfo } from "../../../servers/picture/type";
+import type { PictureInfo } from "../../../servers/types/picture";
 
 interface SelectedPicture {
   info: PictureInfo | null;

@@ -1,5 +1,5 @@
 // API
-import { getPictures } from "../../servers/picture/api";
+import { getPictures } from "../../servers/apis/picture";
 // Component
 import PictureGallery from "./components/templates/PictureGallery";
 

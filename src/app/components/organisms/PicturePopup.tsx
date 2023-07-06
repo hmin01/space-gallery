@@ -7,7 +7,7 @@ import { Picture } from "../atoms/Picture";
 // React hook
 import { useCallback, useMemo } from "react";
 // Status
-import { setSelectedInfo } from "@/app/status/picture";
+import { setSelectedInfo } from "@/status/picture";
 
 export default function PicturePopup(): JSX.Element {
   // 선택된 정보

@@ -2,9 +2,9 @@
 // React hook
 import { useCallback } from "react";
 // Status
-import { setSelectedInfo } from "@/app/status/picture";
+import { setSelectedInfo } from "@/status/picture";
 // Type
-import type { PictureInfo } from "../../../../servers/picture/type";
+import type { PictureInfo } from "@/types/picture";
 
 export function ClickableBox({ children, info }: { children: React.ReactNode, info: PictureInfo }): JSX.Element {
   const { setInfo } = setSelectedInfo();

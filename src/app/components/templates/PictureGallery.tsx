@@ -2,7 +2,7 @@
 import PictureList from "../organisms/PictureList";
 import PicturePopup from "../organisms/PicturePopup";
 // Type
-import { PictureInfo } from "../../../../servers/picture/type";
+import { PictureInfo } from "../../../../servers/types/picture";
 
 export default function PictureGallery({ items }: { items?: PictureInfo[] }): JSX.Element {
   return (
