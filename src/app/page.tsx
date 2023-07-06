@@ -1,6 +1,13 @@
-export default function Home() {
+// API
+import { getPictures } from "../../servers/picture/api";
+// Component
+import PictureGallery from "./components/templates/PictureGallery";
+
+export default async function Page(): Promise<JSX.Element> {
+  // 데이터 조회
+  const data = await getPictures();
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    </main>
+    <PictureGallery items={data} />
   );
 }

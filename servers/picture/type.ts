@@ -4,7 +4,7 @@ export interface PictureImage {
   url: string;
 }
 
-export interface Picture extends PictureImage {
+export interface PictureInfo extends PictureImage {
   explanation: string;
   timestamp: number;
   title: string;
