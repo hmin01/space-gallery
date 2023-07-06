@@ -2,9 +2,9 @@
 // React hook
 import { useCallback } from "react";
 // Status
-import { setSelectedInfo } from "@/app/status/picture";
+import { setSelectedInfo } from "@/status/picture";
 // Type
-import type { PictureInfo } from "../../../../servers/picture/type";
+import type { PictureInfo } from "@/types/picture";
 
 export function ClickableBox({ children, info }: { children: React.ReactNode, info: PictureInfo }): JSX.Element {
   const { setInfo } = setSelectedInfo();
@@ -13,6 +13,6 @@ export function ClickableBox({ children, info }: { children: React.ReactNode, in
   const onClick = useCallback((): void => setInfo(info), [info, setInfo]);
 
   return (
-    <div className="cursor-pointer" onClick={onClick}>{children}</div>
+    <div className="brightness-90 cursor-pointer duration-300 hover:brightness-125" onClick={onClick}>{children}</div>
   );
 }
