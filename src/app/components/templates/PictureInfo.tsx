@@ -1,24 +1,23 @@
-"use client"
+// Component
+import { ImageContainer, ScreenContainer } from "@/components/atoms/Container";
+import { Picture } from "@/components/atoms/Picture";
+// Type
+import type { PictureInfo } from "@/types/picture";
+import Image from "next/image";
+import Backdrop from "../atoms/Backdrop";
+import { ControlScreen } from "../molecules/ControlScreen";
 
-// API
-// import { getPictureInfo } from "@/apis/picture";
-// React query
-import { useQuery } from "react-query";
-// Route
-import { useParams } from "next/navigation";
-//  
-import axios from "axios";
-
-export default async function PictureInfo(): Promise<JSX.Element> {
-  // 파라미터 추출
-  const { date } = useParams();
-  // 데이터 조회
-  // const { data } = useQuery(["picture", date], async () => await getPictureInfo(date));
-  const { data } = useQuery({ queryKey: ["picture", date], queryFn: () => axios.get("https://16wyp5ld8g.execute-api.ap-northeast-2.amazonaws.com/Production/picture/2023-06-22") });
-
+export default async function PictureInfo({ info }: { info: PictureInfo }): Promise<JSX.Element> {
   return (
     <div className="bg-black h-screen w-screen">
-      HI
+      <Backdrop background={info.dataUrl}>
+        <ScreenContainer>
+          <ImageContainer>
+            <Image alt="picture" blurDataURL={info.dataUrl} height={900} src={info.url} width={1600} />
+          </ImageContainer>
+          <ControlScreen />
+        </ScreenContainer>
+      </Backdrop>
     </div>
   );
 }

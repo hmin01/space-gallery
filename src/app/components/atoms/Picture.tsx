@@ -1,6 +1,6 @@
 // Component
 import Image from "next/image";
-import AspectRatio from "./AspectRatio";
+import AspectRatio from "@/components/atoms/AspectRatio";
 
 export const Picture: React.FC<any> = ({ blurDataURL, ratio, src }: { blurDataURL?: string, ratio?: number, src: string }) => {
   return (

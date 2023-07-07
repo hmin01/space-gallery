@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import { CacheProvider } from '@chakra-ui/next-js';
+import { CacheProvider } from "@chakra-ui/next-js";
 // Chakra UI
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider } from "@chakra-ui/react";
 // Type
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from "react";
 
 const ChakraConfigProvder: React.FC<any> = ({ children }: PropsWithChildren) => {
   return (
