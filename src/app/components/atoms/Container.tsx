@@ -9,6 +9,6 @@ export function ImageContainer({ children }: PropsWithChildren): JSX.Element {
 
 export function ScreenContainer({ children }: PropsWithChildren): JSX.Element {
   return (
-    <div className="container max-h-full max-w-7xl overflow-hidden relative z-30">{children}</div>
+    <div className="container max-h-full max-w-7xl overflow-hidden relative z-20">{children}</div>
   );
 }

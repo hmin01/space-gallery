@@ -23,7 +23,8 @@
       "@/apis/*": ["./servers/apis/*"],
       "@/components/*": ["./src/app/components/*"],
       "@/types/*": ["./servers/types/*"],
-      "@/status/*": ["./src/app/status/*"]
+      "@/status/*": ["./src/app/status/*"],
+      "@/utilities/*": ["./utilities/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

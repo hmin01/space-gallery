@@ -1,7 +1,7 @@
 // Component
 import PictureCard from "@/components/molecules/PictureCard";
 // Type
-import type { PictureInfo } from "../../../../servers/types/picture";
+import type { PictureInfo } from "@/types/picture";
 
 export default function PictureList({ items }: { items: PictureInfo[] }): JSX.Element {
   return (
