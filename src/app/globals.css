@@ -19,10 +19,3 @@
 body {
   color: rgb(var(--foreground-rgb));
 }
-
-/* IOS */
-@supports (-webkit-touch-callout: none) {
-  .h-screen {
-    height: -webkit-fill-available;
-  }
-}
