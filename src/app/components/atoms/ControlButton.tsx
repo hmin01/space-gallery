@@ -33,13 +33,13 @@ export function BackButton(): JSX.Element {
   );
 }
 
-export function NextCarouselButton({ date }: { date: string }): JSX.Element {
+export function NextCarouselButton({ timestamp }: { timestamp: number }): JSX.Element {
   // 라우터
   const router = useRouter();
   // UI 컴포넌트 표시 여부
-  const isView: boolean = useMemo(() => !isToday(date), [date]);
+  const isView: boolean = useMemo(() => !isToday(timestamp), [timestamp]);
   /** [Event handler] 클릭 이벤트 */
-  const onClick = useCallback(() => router.push(`/picture/${getNextDate(date)}`), [date, router]);
+  const onClick = useCallback(() => router.push(`/picture/${getNextDate(timestamp)}`), [timestamp, router]);
 
   return isView ? (
     <CarouselButton onClick={onClick}>
@@ -48,11 +48,11 @@ export function NextCarouselButton({ date }: { date: string }): JSX.Element {
   ) : (<span />);
 }
 
-export function PrevCarouselButton({ date }: { date: string }): JSX.Element {
+export function PrevCarouselButton({ timestamp }: { timestamp: number }): JSX.Element {
   // 라우터
   const router = useRouter();
   /** [Event handler] 클릭 이벤트 */
-  const onClick = useCallback(() => router.push(`/picture/${getPrevDate(date)}`), [date, router]);
+  const onClick = useCallback(() => router.push(`/picture/${getPrevDate(timestamp)}`), [timestamp, router]);
 
   return (
     <CarouselButton onClick={onClick}>
