@@ -3,10 +3,14 @@
 // Component
 import { BackButton, NextCarouselButton, PrevCarouselButton } from "@/components/atoms/ControlButton";
 import PictureInfo from "@/components/organisms/PictureInfo";
+// React hook
+import { useCallback, useState } from "react";
+// Router
+import { useRouter } from "next/navigation";
 // Type
 import type { PictureInfo as PictureInfoType } from "@/types/picture";
-import { useRouter } from "next/navigation";
-import { useCallback, useState } from "react";
+// Utilties
+import { isToday } from "@/utilities/date";
 
 export function ControlScreen({ info }: { info: PictureInfoType }): JSX.Element {
   // 라우터
@@ -15,12 +19,21 @@ export function ControlScreen({ info }: { info: PictureInfoType }): JSX.Element 
   const [x, setX] = useState(0);
 
   /** [Event handler] 터치 시작 이벤트 */
-  const onTouchStart = useCallback((e: any) => setX(e.changedTouches.clientX), []);
+  const onTouchStart = useCallback((e: any): void => setX(e.changedTouches[0].clientX), []);
   /** [Event handler] 터치 종료 이벤트 */
-const onTouchEnd = useCallback((e: any) => {
-  if (e.changedTouches.clientX > (x + 100)) router.push(`/picture/${info.timestamp - 86400}`);
-  else if (e.changedTouches.clientX < (x - 100)) router.push(`/picture/${info.timestamp + 86400}`);
-}, [x]);
+  const onTouchEnd = useCallback((e: any): void => {
+    const currentPosX: number = e.changedTouches[0].clientX;
+    // 차이가 160이상 나는 경우
+    if (Math.abs(x - currentPosX) > 160) {
+      const isNext: boolean = x < currentPosX;
+      // 이동할 사진에 대한 타임스탬프
+      const timestamp: number = isNext ? (info.timestamp + 86400) : (info.timestamp - 86400);
+      // 마지막 사진일 경우, Next 이벤트 비활성화
+      if (isNext && isToday(info.timestamp)) return;
+      // 페이지 이동
+      router.push(`/picture/${timestamp}`);
+    }
+  }, [info, x]);
 
   return (
     <div className="absolute h-full top-0 select-none w-full" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
