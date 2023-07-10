@@ -2,25 +2,25 @@ import dayjs from "dayjs";
 
 /**
  * [Function] 1일 전 날짜 구하기
- * @param date 기준일 (YYYY-MM-DD)
- * @returns 날짜 형식 문자열 (YYYY-MM-DD)
+ * @param timestamp 기준일 타임스탬프
+ * @returns 유닉스 타임스탬프
  */
-export function getPrevDate(date: string): string {
-  return dayjs(date).subtract(1, "day").format("YYYY-MM-DD");
+export function getPrevDate(timestamp: number): number {
+  return dayjs.unix(timestamp).subtract(1, "day").unix();
 }
 /**
  * [Function] 1일 후 날짜 구하기
- * @param date 기준일 (YYYY-MM-DD)
- * @returns 날짜 형식 문자열 (YYYY-MM-DD)
+ * @param timestamp 기준일 타임스탬프
+ * @returns 유닉스 타임스탬프
  */
-export function getNextDate(date: string): string {
-  return dayjs(date).add(1, "day").format("YYYY-MM-DD");
+export function getNextDate(timestamp: number): number {
+  return dayjs.unix(timestamp).add(1, "day").unix();
 }
 /**
  * [Function] 오늘 날짜 여부 확인
- * @param date 날짜 형식 문자열 (YYYY-MM-DD)
+ * @param timestamp 타임스탬프
  * @returns 일치 여부
  */
-export function isToday(date: string): boolean {
-  return dayjs().format("YYYY-MM-DD") === date;
+export function isToday(timestamp: number): boolean {
+  return dayjs().format("YYYY-MM-DD") === dayjs.unix(timestamp).format("YYYY-MM-DD");
 }

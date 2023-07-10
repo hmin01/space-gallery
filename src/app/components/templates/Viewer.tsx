@@ -1,4 +1,5 @@
 // Component
+import { AnimatePresence } from "@/components/atoms/AnimatePresence";
 import Backdrop from "@/components/atoms/Backdrop";
 import { ImageContainer, ScreenContainer } from "@/components/atoms/Container";
 import { Picture } from "@/components/atoms/Picture";
@@ -12,7 +13,9 @@ export default async function Viewer({ info }: { info: PictureInfo }): Promise<J
       <Backdrop background={info.dataUrl}>
         <ScreenContainer>
           <ImageContainer>
-            <Picture blurDataURL={info.dataUrl} priority src={info.url} />
+            <AnimatePresence>
+              <Picture blurDataURL={info.dataUrl} priority src={info.url} />
+            </AnimatePresence>
           </ImageContainer>
           <ControlScreen info={info} />
         </ScreenContainer>

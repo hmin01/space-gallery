@@ -15,12 +15,12 @@ export async function getPictures(): Promise<PictureInfo[]> {
 }
 /**
  * [API Caller] 이미지 정보 조회
- * @param date 날짜 형식 문자열 (YYYY-MM-DD)
+ * @param timestamp 유닉스 타임스탬프
  * @returns 조회 결과
  */
-export async function getPictureInfo(date: string): Promise<PictureInfo> {
+export async function getPictureInfo(timestamp: number): Promise<PictureInfo> {
   // 데이터 조회
-  const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/picture/${date}`);
+  const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/picture/${timestamp}`);
   // 예외 처리
   if (!res.ok) throw new Error("Failed to fetch data");
   // 결과 반환
