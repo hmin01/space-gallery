@@ -1,5 +1,5 @@
 // Type
-import type { PictureInfo } from "@/types/picture";
+import type { PhotoInfoProps } from "@/types/photo";
 // Utilities
 import { getRevalidateTime } from "@/utilities/date";
 
@@ -7,7 +7,7 @@ import { getRevalidateTime } from "@/utilities/date";
  * [API Caller] 이미지 목록 조회
  * @returns 조회 결과
  */
-export async function getPictures(): Promise<PictureInfo[]> {
+export async function getPhotos(): Promise<PhotoInfoProps[]> {
   // 데이터 조회
   const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/pictures`, { next: { revalidate: getRevalidateTime() } });
   // 예외 처리
@@ -20,7 +20,7 @@ export async function getPictures(): Promise<PictureInfo[]> {
  * @param timestamp 유닉스 타임스탬프
  * @returns 조회 결과
  */
-export async function getPictureInfo(timestamp: number): Promise<PictureInfo> {
+export async function getPhotoInfo(timestamp: number): Promise<PhotoInfoProps> {
   // 데이터 조회
   const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/picture/${timestamp}`);
   // 예외 처리

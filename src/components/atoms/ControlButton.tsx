@@ -7,7 +7,7 @@ import { useCallback, useMemo } from "react";
 // Router
 import { useRouter } from "next/navigation";
 // Utilities
-import { getNextDate, getPrevDate, isToday } from "@/utilities/date";
+import { getNextDate, getPrevDate, isToday } from "../../utilities/date";
 
 function CarouselButton({ children, onClick }: { children?: React.ReactNode, onClick?: () => void }): JSX.Element {
   /** [Event handler] 기본 이벤트 */
