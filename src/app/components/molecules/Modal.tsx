@@ -2,8 +2,10 @@
 
 // Type
 import type { PictureInfo } from "@/types/picture";
+import type { PropsWithChildren } from "react";
 // Component
 import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
 
 export function PictureInfoModal({ info, isOpen, onClose }: { info: PictureInfo, isOpen: boolean, onClose: () => void }): JSX.Element {
   return (
@@ -12,6 +14,18 @@ export function PictureInfoModal({ info, isOpen, onClose }: { info: PictureInfo,
         <ModalHeader>{info.title}</ModalHeader>
         <ModalCloseButton />
         <ModalBody>{info.explanation}</ModalBody>
+      </ModalContent>
+    </Modal>
+  );
+}
+
+export function TestModal({ children }: PropsWithChildren ): JSX.Element {
+  const router = useRouter();
+
+  return (
+    <Modal isOpen={true} onClose={() => router.push("/")}>
+      <ModalContent>
+        <ModalBody>{children}</ModalBody>
       </ModalContent>
     </Modal>
   );

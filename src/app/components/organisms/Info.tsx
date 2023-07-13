@@ -8,7 +8,7 @@ import { PictureInfoModal } from "@/components/molecules/Modal";
 // Type
 import type { PictureInfo } from "@/types/picture";
 
-export default function PictureInfo({ info }: { info: PictureInfo}): JSX.Element {
+export default function Info({ info }: { info: PictureInfo }): JSX.Element {
   const { isOpen, onClose, onOpen } = useDisclosure();
 
   return (

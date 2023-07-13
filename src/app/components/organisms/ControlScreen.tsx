@@ -2,17 +2,17 @@
 
 // Component
 import { BackButton, NextCarouselButton, PrevCarouselButton } from "@/components/atoms/ControlButton";
-import PictureInfo from "@/components/organisms/PictureInfo";
+import Info from "@/components/organisms/Info";
 // React hook
 import { useCallback, useState } from "react";
 // Router
 import { useRouter } from "next/navigation";
 // Type
-import type { PictureInfo as PictureInfoType } from "@/types/picture";
+import type { PictureInfo } from "@/types/picture";
 // Utilties
 import { isToday } from "@/utilities/date";
 
-export function ControlScreen({ info }: { info: PictureInfoType }): JSX.Element {
+export function ControlScreen({ info }: { info: PictureInfo }): JSX.Element {
   // 라우터
   const router = useRouter();
   // 터치 이벤트 상태
@@ -41,7 +41,7 @@ export function ControlScreen({ info }: { info: PictureInfoType }): JSX.Element 
       <div className="flex h-full items-center justify-between px-4 relative w-full">
         <NextCarouselButton timestamp={info.timestamp} />
         <PrevCarouselButton timestamp={info.timestamp} />
-        <PictureInfo info={info} />
+        <Info info={info} />
       </div>
     </div>
   );
