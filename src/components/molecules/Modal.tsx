@@ -42,21 +42,11 @@ export function InfoModal({ info }: InfoModalProps): JSX.Element {
 export function PhotoModal({ backdrop, children }: PhotoModalProps): JSX.Element {
   // 라우터
   const router = useRouter();
-  // 모달 상태
-  const { show, setShow } = useDisplayMainModal();
-
   /** [Event handler] 모달 닫기 */
-  const onCloseModal = useCallback(() => {
-    router.push("/", { shallow: true });
-    setShow(false);
-  }, [router, setShow]);
-
-  useEffect(() => {
-    setShow(true);
-  }, []);
+  const onCloseModal = useCallback(() => router.back(), [router]);
 
   return (
-    <Modal isCentered isOpen={show} onClose={onCloseModal} scrollBehavior="inside" size="6xl">
+    <Modal isCentered isOpen onClose={onCloseModal} scrollBehavior="inside" size="6xl">
       {backdrop ? (
         <ModalOverlay bgImage={backdrop} bgRepeat="no-repeat" bgSize="cover" />
       ) : (

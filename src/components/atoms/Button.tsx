@@ -14,6 +14,10 @@ interface BasicCircleButtonProps {
   children: React.ReactNode;
   onClick?: () => void
 }
+/** [Properties] For BackButton */
+interface BackButtonProps {
+  isHardNav?: boolean;
+}
 
 /**
  * [Internal Component] 기본 원형 버튼
@@ -28,17 +32,11 @@ function BasicCircleButton({ children, onClick }: BasicCircleButtonProps): JSX.E
   );
 }
 
-export function BackButton(): JSX.Element {
+export function BackButton({ isHardNav }: BackButtonProps): JSX.Element {
   // 라우터
   const router = useRouter();
-  // 상태 변경 함수
-  const { setShow } = useDisplayMainModal();
-
   /** [Event handler] 클릭 이벤트 */
-  const onClick = useCallback(() => {
-    setShow(false);
-    router.push("/");
-  }, [router, setShow]);
+  const onClick = useCallback(() => isHardNav ? router.push("/") : router.back(), [isHardNav, router]);
 
   return (
     <span className="absolute left-4 top-4 z-10">

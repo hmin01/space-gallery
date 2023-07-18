@@ -5,15 +5,15 @@ import { InfoModal } from "@/components/molecules/Modal";
 import type { PhotoInfoProps } from "@/types/photo";
 
 /** [Properties] For Slider */
-interface SliderProps {
+interface TooptipProps {
   info: PhotoInfoProps;
-  navigate?: boolean;
+  isHardNav?: boolean;
 }
 
-export default function Slider({ info, navigate }: SliderProps): JSX.Element {
+export default function Tooptip({ info, isHardNav }: TooptipProps): JSX.Element {
   return (
     <div className="absolute h-full top-0 select-none w-full">
-      <BackButton />
+      <BackButton isHardNav={isHardNav} />
       <InfoButton />
       <InfoModal info={info} />
     </div>

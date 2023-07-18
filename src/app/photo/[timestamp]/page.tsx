@@ -18,6 +18,6 @@ export default async function Page({ params }: { params: { timestamp: string } }
   const data = await getPhotoInfo(Number(timestamp));
 
   return (
-    <Viewer info={data} />
+    <Viewer info={data} isHardNav />
   );
 }

@@ -11,6 +11,6 @@ export default async function Page({ params }: { params : { timestamp: string } 
   const info = await getPhotoInfo(Number(timestamp));
 
   return (
-    <Viewer info={info} navigate />
+    <Viewer info={info} />
   );
 }

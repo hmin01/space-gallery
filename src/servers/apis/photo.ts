@@ -9,7 +9,7 @@ import { getRevalidateTime } from "@/utilities/date";
  */
 export async function getPhotos(): Promise<PhotoInfoProps[]> {
   // 데이터 조회
-  const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/pictures`, { next: { revalidate: getRevalidateTime() } });
+  const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/photos`, { cache: "no-cache" });
   // 예외 처리
   if (!res.ok) throw new Error("Failed to fetch data");
   // 결과 반환
@@ -22,7 +22,7 @@ export async function getPhotos(): Promise<PhotoInfoProps[]> {
  */
 export async function getPhotoInfo(timestamp: number): Promise<PhotoInfoProps> {
   // 데이터 조회
-  const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/picture/${timestamp}`);
+  const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/photo/${timestamp}`);
   // 예외 처리
   if (!res.ok) throw new Error("Failed to fetch data");
   // 결과 반환
@@ -33,8 +33,8 @@ export async function getPhotoInfo(timestamp: number): Promise<PhotoInfoProps> {
  * @returns 조회 결과
  */
 export async function getTimestampList(): Promise<number[]> {
-  // 데이터 조회
-  const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/pictures/timestamp`, { next: { revalidate: getRevalidateTime() }});
+  // 데이터 조회 ({ next: { revalidate: getRevalidateTime() } })
+  const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/photos/timestamp`);
   // 예외 처리
   if (!res.ok) throw new Error("Failed to fetch data");
   // 결과 반환
