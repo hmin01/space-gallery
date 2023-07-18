@@ -1,13 +1,13 @@
 // API
-import { getPictures } from "../../servers/apis/picture";
+import { getPhotos } from "@/apis/photo";
 // Component
-import PictureGallery from "./components/templates/PictureGallery";
+import Gallery from "@/components/templates/Gallery";
 
 export default async function Page(): Promise<JSX.Element> {
   // 데이터 조회
-  const data = await getPictures();
+  const data = await getPhotos();
 
   return (
-    <PictureGallery items={data} />
+    <Gallery items={data} />
   );
 }
