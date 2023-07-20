@@ -1,13 +1,13 @@
 "use client"
 
 // Component
-import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react";
+import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 // React hook
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 // Router
 import { useRouter } from "next/navigation";
 // Status
-import { useDisplayInfoModal, useDisplayMainModal } from "@/status/modal";
+import { useDisplayInfoModal } from "@/status/modal";
 // Type
 import type { PhotoInfoProps } from "@/types/photo";
 

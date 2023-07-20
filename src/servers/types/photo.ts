@@ -8,3 +8,8 @@ export interface PhotoInfoProps extends PhotoProps {
   explanation: string;
   title: string;
 }
+
+export interface ProcessedPhotoProps {
+  component: React.ReactNode;
+  id: number;
+}
