@@ -3,7 +3,13 @@ import { getPhotoInfo } from "@/apis/photo";
 // Component
 import Viewer from "@/components/templates/Viewer";
 
-export default async function Page({ params }: { params : { timestamp: string } }): Promise<JSX.Element> {
+interface PageProps {
+  params: {
+    timestamp: string
+  }
+}
+
+export default async function Page({ params }: PageProps): Promise<JSX.Element> {
   // 파라미터 추출
   const { timestamp } = params;
 

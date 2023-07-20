@@ -13,9 +13,11 @@ interface ViewerProps {
 
 export default async function Viewer({ info, isHardNav }: ViewerProps): Promise<JSX.Element> {
   return (
-    <PhotoModal backdrop={isHardNav ? info.dataUrl : undefined}>
-      <BasicPhoto blurDataUrl={info.dataUrl} priority src={info.url} />
-      <Tooptip info={info} isHardNav={isHardNav} />
-    </PhotoModal>
+    <div className="fixed top-10">
+      <PhotoModal backdrop={isHardNav ? info.dataUrl : undefined}>
+        <BasicPhoto blurDataUrl={info.dataUrl} priority src={info.url} />
+        <Tooptip info={info} isHardNav={isHardNav} />
+      </PhotoModal>
+    </div>
   );
 }
