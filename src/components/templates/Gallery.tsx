@@ -3,6 +3,8 @@ import { PhotoCard } from "@/components/molecules/Card";
 import List from "@/components/organisms/List";
 // Type
 import type { PhotoInfoProps, ProcessedPhotoProps } from "@/types/photo";
+import Viewer from "./Viewer";
+import { TestModal } from "../molecules/Modal";
 
 /** [Properties] For Gallery */
 interface GalleryProps {
@@ -19,6 +21,7 @@ export default function Gallery({ items }: GalleryProps): JSX.Element {
   return (
     <div className="bg-black min-h-screen p-4">
       <List photos={photos} />
+      {/* <TestModal /> */}
     </div>
   );
 }

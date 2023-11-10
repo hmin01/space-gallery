@@ -7,7 +7,7 @@ import { useCallback } from "react";
 // Router
 import { useRouter } from "next/navigation";
 // Status
-import { useDisplayInfoModal } from "@/status/modal";
+import { useDisplayInfoModal, useDisplayMainModal } from "@/status/modal";
 // Type
 import type { PhotoInfoProps } from "@/types/photo";
 
@@ -54,6 +54,21 @@ export function PhotoModal({ backdrop, children }: PhotoModalProps): JSX.Element
       )}
       <ModalContent maxHeight="full">
         <ModalBody height="full" overflowY="hidden" p="0">{children}</ModalBody>
+      </ModalContent>
+    </Modal>
+  );
+}
+
+export function TestModal(): JSX.Element {
+  const { show, setShow } = useDisplayMainModal();
+  /** [Event handler] 모달 닫기 */
+  const onCloseModal = useCallback(() => setShow(false), [setShow]);
+
+  return (
+    <Modal isCentered isOpen={show} onClose={onCloseModal} scrollBehavior="inside" size="6xl">
+      <ModalOverlay bg="blackAlpha.700" backdropFilter="blur(16px)" />
+      <ModalContent maxHeight="full">
+        <ModalBody height="full" overflowY="hidden" p="0">hi</ModalBody>
       </ModalContent>
     </Modal>
   );
