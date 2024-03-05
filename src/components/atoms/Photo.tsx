@@ -10,10 +10,27 @@ interface BasicPhotoProps {
   src: string;
 }
 
-export function BasicPhoto ({ blurDataUrl, priority, ratio, src }: BasicPhotoProps) {
+export function BasicPhoto({
+  blurDataUrl,
+  priority,
+  ratio,
+  src,
+}: BasicPhotoProps) {
   return (
     <AspectRatio ratio={ratio ? ratio : 4 / 3}>
-      <Image alt="picture" blurDataURL={blurDataUrl ? blurDataUrl : "data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mOM7AEAAUQA5/+cleQAAAAASUVORK5CYII="} height={900} placeholder="blur" priority={priority} src={src} width={1600} />
+      <Image
+        alt="picture"
+        blurDataURL={
+          blurDataUrl
+            ? blurDataUrl
+            : "data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mOM7AEAAUQA5/+cleQAAAAASUVORK5CYII="
+        }
+        height={900}
+        placeholder="blur"
+        priority={priority}
+        src={src}
+        width={1600}
+      />
     </AspectRatio>
   );
 }

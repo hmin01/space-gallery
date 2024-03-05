@@ -1,13 +1,21 @@
 // API
-import { getPhotos } from "@/apis/photo";
+import { getPictures } from "@/apis/picture";
 // Component
-import Gallery from "@/components/templates/Gallery";
+import PictureCard from "./_components/PictureCard";
+// Type
+import type { PictureInfo } from "@/types/picture";
 
-export default async function Page(): Promise<JSX.Element> {
+export default async function Page() {
   // 데이터 조회
-  const data = await getPhotos();
+  const pictures = await getPictures();
 
   return (
-    <Gallery items={data} />
+    <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 max-w-[1960px] mx-auto">
+      {pictures.map(
+        (elem: PictureInfo): React.ReactNode => (
+          <PictureCard {...elem} key={elem.id} />
+        )
+      )}
+    </div>
   );
 }

@@ -1,7 +1,14 @@
-"use client"
+"use client";
 
 // Component
-import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from "@chakra-ui/react";
+import {
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
+} from "@chakra-ui/react";
 // React hook
 import { useCallback } from "react";
 // Router
@@ -30,7 +37,12 @@ export function InfoModal({ info }: InfoModalProps): JSX.Element {
 
   return (
     <Modal isOpen={show} onClose={onClose} scrollBehavior="inside" size="full">
-      <ModalContent bg="blackAlpha.400" backdropFilter="blur(10px)" color="white" maxWidth="6xl">
+      <ModalContent
+        bg="blackAlpha.400"
+        backdropFilter="blur(10px)"
+        color="white"
+        maxWidth="6xl"
+      >
         <ModalHeader>{info.title}</ModalHeader>
         <ModalCloseButton />
         <ModalBody>{info.explanation}</ModalBody>
@@ -39,21 +51,32 @@ export function InfoModal({ info }: InfoModalProps): JSX.Element {
   );
 }
 
-export function PhotoModal({ backdrop, children }: PhotoModalProps): JSX.Element {
+export function PhotoModal({
+  backdrop,
+  children,
+}: PhotoModalProps): JSX.Element {
   // 라우터
   const router = useRouter();
   /** [Event handler] 모달 닫기 */
   const onCloseModal = useCallback(() => router.back(), [router]);
 
   return (
-    <Modal isCentered isOpen onClose={onCloseModal} scrollBehavior="inside" size="6xl">
+    <Modal
+      isCentered
+      isOpen
+      onClose={onCloseModal}
+      scrollBehavior="inside"
+      size="6xl"
+    >
       {backdrop ? (
         <ModalOverlay bgImage={backdrop} bgRepeat="no-repeat" bgSize="cover" />
       ) : (
         <ModalOverlay bg="blackAlpha.700" backdropFilter="blur(16px)" />
       )}
       <ModalContent maxHeight="full">
-        <ModalBody height="full" overflowY="hidden" p="0">{children}</ModalBody>
+        <ModalBody height="full" overflowY="hidden" p="0">
+          {children}
+        </ModalBody>
       </ModalContent>
     </Modal>
   );
@@ -65,10 +88,18 @@ export function TestModal(): JSX.Element {
   const onCloseModal = useCallback(() => setShow(false), [setShow]);
 
   return (
-    <Modal isCentered isOpen={show} onClose={onCloseModal} scrollBehavior="inside" size="6xl">
+    <Modal
+      isCentered
+      isOpen={show}
+      onClose={onCloseModal}
+      scrollBehavior="inside"
+      size="6xl"
+    >
       <ModalOverlay bg="blackAlpha.700" backdropFilter="blur(16px)" />
       <ModalContent maxHeight="full">
-        <ModalBody height="full" overflowY="hidden" p="0">hi</ModalBody>
+        <ModalBody height="full" overflowY="hidden" p="0">
+          hi
+        </ModalBody>
       </ModalContent>
     </Modal>
   );
