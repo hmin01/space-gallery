@@ -1,19 +1,21 @@
 // Component
+import { AspectRatio, Picture } from "@/components/atoms";
 import Link from "next/link";
-import { Picture } from "@components";
 import PictureCardCover from "./PictureCardCover";
 // Type
-import type { PictureInfo } from "@/types/picture";
+import type { PictureOverData } from "@/types/picture";
 
-export default function PictureCard({ dataUrl, id, title, url }: PictureInfo) {
+export default function PictureCard({ dataUrl, id, title, url }: PictureOverData) {
   return (
     <Link
       className="brightness-90 duration-300 hover:brightness-125 overflow-hidden relative rounded-xl ring-1 ring-zinc-800"
-      href={`/photo/${id}`}
-      key={id}
+      href={`/picture/${id}`}
+      scroll={false}
       shallow
     >
-      <Picture dataUrl={dataUrl} isRatio={true} src={url} />
+      {/* <AspectRatio> */}
+      <Picture dataUrl={dataUrl} isRatio priority={false} src={url} />
+      {/* </AspectRatio> */}
       <PictureCardCover>{title}</PictureCardCover>
     </Link>
   );

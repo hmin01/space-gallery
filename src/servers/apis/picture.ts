@@ -1,5 +1,5 @@
 // Type
-import type { PictureInfo } from "@/types/picture";
+import type { PictureOverData } from "@/types/picture";
 
 const API_SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 
@@ -7,10 +7,10 @@ const API_SERVER = process.env.NEXT_PUBLIC_API_SERVER;
  * [API Caller] 이미지 목록 조회
  * @returns 조회 결과
  */
-export async function getPictures(): Promise<PictureInfo[]> {
+export async function getPictures(): Promise<PictureOverData[]> {
   // 데이터 조회
   const res: Response = await fetch(`${API_SERVER}/photos`, {
-    cache: "no-cache",
+    next: { revalidate: 3600 },
   });
   // 예외 처리
   if (!res.ok) throw new Error("Failed to fetch data");
@@ -22,7 +22,7 @@ export async function getPictures(): Promise<PictureInfo[]> {
  * @param id 이미지 ID (= 타임스탬프)
  * @returns 조회 결과
  */
-export async function getPicture(id: number): Promise<PictureInfo> {
+export async function getPicture(id: number): Promise<PictureOverData> {
   // 데이터 조회
   const res: Response = await fetch(`${API_SERVER}/photo/${id}`);
   // 예외 처리

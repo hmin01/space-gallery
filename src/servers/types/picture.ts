@@ -9,12 +9,18 @@ export interface PictureData {
   /** 원본 이미지 URL */
   url: string;
 }
+
 /**
  * 사진 정보
  */
-export interface PictureInfo extends PictureData {
+export interface PictureInfoData {
   /** 설명 */
   explanation: string;
   /** 제목 */
   title: string;
 }
+
+/**
+ * 사진 전체 데이터
+ */
+export interface PictureOverData extends PictureData, PictureInfoData {}
