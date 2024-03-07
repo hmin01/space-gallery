@@ -13,8 +13,8 @@ export default function PictureModal({ children, isHardNav }: PictureModalProps)
 
   return (
     <ChakraModal isCentered isOpen onClose={onClose}>
-      <ChakraModalOverlay bg={isHardNav ? "blackAlpha.400" : "blackAlpha.800"} backdropFilter="blur(16px)" />
-      <ChakraModalContent bg="transparent" minHeight="100%" maxW="768" overflow="hidden">
+      <ChakraModalOverlay bg={isHardNav ? "blackAlpha.500" : "blackAlpha.800"} backdropFilter="blur(16px)" />
+      <ChakraModalContent bg="transparent" height="max-content" maxW="768" shadow="none">
         {children}
       </ChakraModalContent>
     </ChakraModal>

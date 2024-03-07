@@ -17,8 +17,8 @@ export default function RootLayout({ children, modal }: { children: React.ReactN
     <html lang="en">
       <body className={`bg-black min-h-screen ${inter.className}`}>
         <Providers>
-          <>{modal}</>
           <>{children}</>
+          <>{modal}</>
         </Providers>
       </body>
     </html>

@@ -2,12 +2,12 @@ import dynamic from "next/dynamic";
 // API
 import { getPicture } from "@/apis/picture";
 // Component
-import { Picture } from "@/components/atoms";
-import { Background } from "./_components";
-const PictureInfo: ComponentType<any> = dynamic(() => import("@/components/molecules").then((m: any) => m.PictureInfo));
-const PictureModal: ComponentType<any> = dynamic(() => import("@/components/organisms").then((m: any) => m.PictureModal));
+import { Background, Picture, PictureContainer, PictureSection } from "./_components";
+// Component (lazy)
+const PictureInfo: ComponentType<PictureInfoData> = dynamic(() => import("@/components/molecules").then((m: any) => m.PictureInfo));
 // Type
 import type { ComponentType } from "react";
+import type { PictureInfoData } from "@/types/picture";
 
 interface queryParams {
   params: {
@@ -22,12 +22,14 @@ export default async function Page({ params }: queryParams) {
   const data = await getPicture(Number(id));
 
   return (
-    <>
+    <main className="fixed flex inset-0 items-center justify-center">
       <Background dataUrl={data.dataUrl} />
-      <PictureModal isHardNav>
-        <Picture dataUrl={data.dataUrl} priority={true} src={data.url} />
+      <PictureSection>
+        <PictureContainer height={data.height} width={data.width}>
+          <Picture {...data} />
+        </PictureContainer>
         <PictureInfo explanation={data.explanation} title={data.title} />
-      </PictureModal>
-    </>
+      </PictureSection>
+    </main>
   );
 }

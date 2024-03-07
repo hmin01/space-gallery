@@ -4,5 +4,10 @@ import Image from "next/image";
 import type BackgroundProps from "./Background.types";
 
 export default function Background({ dataUrl }: BackgroundProps) {
-  return <>{dataUrl && <Image alt="background" fill={true} priority src={dataUrl} style={{ objectFit: "cover" }} />}</>;
+  return (
+    <div className="absolute h-full w-full">
+      <>{dataUrl && <Image alt="background" className="h-full inset-0 object-cover w-full" fill={true} priority src={dataUrl} />}</>
+      <div className="bg-black/30 h-full w-full"></div>
+    </div>
+  );
 }

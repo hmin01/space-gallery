@@ -9,11 +9,14 @@ export function useVisible() {
   // UI 표시 여부
   const [visible, setVisible] = useState<boolean>(false);
 
-  /** [Event handler] 클릭 이벤트 핸들러 */
-  const onClick = useCallback(() => setVisible(!visible), [visible]);
+  /** [Event handler] 표시 이벤트 핸들러 */
+  const onVisible = useCallback(() => setVisible(true), []);
+  /** [Event handler] 미표시 이벤트 핸들러 */
+  const onUnVisible = useCallback(() => setVisible(false), []);
 
   return {
     visible,
-    onClick,
+    onVisible,
+    onUnVisible,
   };
 }

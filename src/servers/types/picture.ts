@@ -4,10 +4,14 @@
 export interface PictureData {
   /** 블러를 위한 이미지 데이터 URL */
   dataUrl: string;
+  /** 높이 */
+  height?: number;
   /** ID */
   id: string;
   /** 원본 이미지 URL */
   url: string;
+  /** 너비 */
+  width?: number;
 }
 
 /**
